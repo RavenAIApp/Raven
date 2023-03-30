@@ -1,38 +1,168 @@
+<!DOCTYPE html>
 <html>
+{% load static %}
 <head>
     <title>Raven AI</title>
+    <!--link rel="shortcut icon" href="{% static 'pic/web_icon.png' %}" type="image/x-icon"-->
+    <link rel="shortcut icon" href="https://ravenapp.link/static/pic/web_icon.png" type="image/x-icon"-->
     <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
     <style>
-        body{
-            margin: auto 10%;
+        body {
+            font-size: 28px;
+            margin: 1% 10%;
         }
+		.nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #ff7f00;
+            padding: 10px 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        .nav a, h1 {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: 600;
+            transition: color 0.3s, transform 0.3s;
+        }
+        .nav a:hover {
+            color: #ffbd71;
+            transform: translateY(-3px);
+        }
+        h1 {
+            font-size: 28px;
+            margin-left: 0;
+        }
+        p {
+            font-size: 26px;
+            color: #FFA500;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+		
+		h2, h3 {
+            color: #ff7f00;
+            font-weight: 700;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            line-height: 1.5;
+        }
+        h3 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        img {
+            display: block;
+            width: 100%;
+            max-width: 800px;
+            margin: 20px auto;
+			border-radius: 10px;
+        }
+		
+        .slideshow-container {
+            position: relative;
+            max-width: 100%;
+        }
+        .slideshow-container img {
+            width: 100%;
+            height: auto;
+            display: none;
+        }
+        .slideshow-container img.active {
+            display: block;
+        }
+		ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        ul li {
+            background-color: #ff7f00;
+            color: white;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+        }
+        ul li:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
+        }
+		#footer {
+			background-color: #f9f9f9;
+			padding: 20px 0;
+			font-size: 22px;
+			color: #ff7f00;
+			border-top: 2px solid #ff7f00;
+			text-align: center;
+		}
+
+		.el-icon-map-location,
+		.el-icon-message {
+			margin-right: 5px;
+		}
+		
     </style>
 </head>
-
 <body>
     <div id="main">
-        <div id="header">
-            <h1 align="center">Raven AI</h1>
+        <div class="nav">
+            <h1>Raven AI</h1>
+            <div>
+                <a href="#unique">Uniqueness</a>
+                <a href="#works">Functionality</a>
+                <a href="#benefit">Benefits</a>
+                <a href="#community">Community</a>
+            </div>
         </div>
         <div id="content">
-            <h2>What we are doing</h2>
-            <p>We are a tech company dedicated to developing an intelligent group assistant for Facebook Groups.</p>
-            <p>Our product uses AI and machine learning to make managing and moderating Facebook Groups easier and more efficient. We are passionate about creating the best user experience possible for our users and helping them to maximize their social media presence.</p>
-            <p>With Raven AI, you can be sure that your Facebook Groups will be managed in the most efficient and effective way.</p>
-            <h2>What we are using</h2>
-            <h3>ChatGPT <i class="el-icon-chat-line-square"></i> </h3>
-            <p>ChatGPT is an open-source natural language processing (NLP) library that enables developers to easily create conversational interfaces. It is a transformer-based language model based on the GPT-4 model that is trained on conversation data. It can generate responses to user inputs, allowing for natural language conversations between users and bots.</p>
-            <h3>Weaviate <i class="el-icon-s-data"></i></h3>
-            <p>
-Weaviate is a knowledge graph engine that helps developers understand and interpret user input, extract information from input data, and execute queries against a knowledge graph. It is built on the graph theory, and uses an object-oriented programming model to store, query, and explore data.</p>
-            <p> With Weaviate, developers can develop applications that use natural language processing (NLP) to understand user intent, retrieve and store data, and query the knowledge graph.</p>
-            <h3>Messenger bot <i class="el-icon-service"></i></h3>
-            <p>A messenger bot is a type of chatbot that allows users to interact with a business or service via a messaging app like Facebook Messenger, Slack, or Telegram. The bot is programmed to understand and respond to specific commands and queries from the user, helping to quickly answer questions, provide information, and even complete transactions. </p>
-            <p>The bots are powered by Artificial Intelligence (AI) and Natural Language Processing (NLP) technologies, enabling them to understand natural language and context so they can accurately provide answers to user queries. Messenger bots can be used for customer service, marketing, sales, and operations, making them an essential tool for businesses to stay connected with their customers.</p>
-            <h2>Find us</h2>
-            <p>Our project is open-source, meaning it is freely available for anyone to access, use, modify and share. This means that anyone can view and download the source code, make improvements to it, and even redistribute it under the same open-source license.</p>
-            <p>We are always looking for contributors to help make our project even better, so if you have any suggestions or would like to get involved, please feel free to reach out. We would be more than happy to hear from you.</p>
-            <p>You can find us <a href="https://github.com/ravenaiapp">here</a>.</p>
+            <h2 id="unique">What Makes Us Unique</h2>
+				<p>At Raven AI, we believe that managing Facebook groups should be an effortless task. That's why we created an intelligent group assistant that uses AI and machine learning to help you moderate your group. Our tool can analyze group posts and comments, detect potential issues, and suggest the best course of action for the moderator. This way, you can focus on creating engaging content and growing your community, without worrying about the administrative tasks.</p>
+				<div class="slideshow-container">
+					<img class="slide" src="{% static 'pic/p11.jpg' %}" alt="Unique Feature Image 1">
+					<img class="slide" src="{% static 'pic/p12.jpg' %}" alt="Unique Feature Image 2">
+					<img class="slide" src="{% static 'pic/p13.webp' %}" alt="Unique Feature Image 3">
+				</div>
+				<p>Our product uses AI and machine learning to make managing and moderating Facebook Groups easier and more efficient. We are passionate about creating the best user experience possible for our users and helping them to maximize their social media presence.</p>
+				<p>With Raven AI, you can be sure that your Facebook Groups will be managed in the most efficient and effective way.</p>
+				
+            <h2 id="works">How It Works</h2>
+				
+				<h3>OpenAI <i class="el-icon-chat-line-square"></i> </h3>
+				<p><a href="https://www.openai.com/">OpenAI</a> is an artificial intelligence (AI) research lab that aims to develop advanced AI technologies to benefit humanity. OpenAI is known for developing groundbreaking AI models such as GPT-3, Codex, and DALL-E, which have significantly advanced the fields of natural language processing, machine learning, and computer vision. By providing open access to their cutting-edge AI models and tools, OpenAI fosters collaboration and encourages innovation in the AI community.</p>
+				
+				<img src="{% static 'pic/p21.jpeg' %}" alt="How It Works Image">
+				
+				<h3>Weaviate <i class="el-icon-s-data"></i></h3>
+				<p> <a href="https://https://weaviate.io/">Weaviate</a> is a knowledge graph engine that helps developers understand and interpret user input, extract information from input data, and execute queries against a knowledge graph. It is built on the graph theory, and uses an object-oriented programming model to store, query, and explore data.</p>
+				<p> With Weaviate, developers can develop applications that use natural language processing (NLP) to understand user intent, retrieve and store data, and query the knowledge graph.</p>
+				<h3>Group Manager <i class="el-icon-service"></i></h3>
+				<p>A group manager, responsible for organizing and consolidating user-generated posts, can provide valuable question-and-answer services to the community. By actively monitoring and categorizing the content shared within the group, they enable members to quickly find relevant information and solutions to their queries. This streamlined access to knowledge fosters an efficient learning environment and helps to build a strong network of support and collaboration among the community members.</p>
+				<img src="{% static 'pic/p22.jpg' %}" alt="How It Works Image">
+				<p>Furthermore, the group manager can use AI-powered tools to enhance their ability to manage the group effectively. These tools can automatically identify frequently asked questions, detect emerging trends, and even offer personalized recommendations based on individual preferences and interests. By leveraging the power of AI, the group manager can ensure that the community stays well-informed, engaged, and continues to thrive in an ever-evolving digital landscape.</p>
+            
+            <h2 id="benefit">Who Can Benefit from Raven AI</h2>
+				<img src="{% static 'pic/p31.jpg' %}" alt="How It Works Image">
+				<p>Our tool is ideal for anyone who manages a Facebook group, whether it's a small community or a large organization. Raven AI can help you save time, reduce stress, and increase the quality of your group's content. Some examples of groups that can benefit from our technology are:</p>
+				<ul>
+					<li>Non-profit organizations that rely on Facebook groups to connect with their supporters and donors.</li>
+					<li>Businesses that use Facebook groups for customer service, marketing, or employee collaboration.</li>
+					<li>Social media managers who handle multiple groups and need to streamline their workflow.</li>
+					<li>Individuals who run hobby or interest groups and want to create a positive and engaging community.</li>
+				</ul>
+				
+            <h2 id="community"><a href="https://www.facebook.com/profile.php?id=100091588770008">Join our community</a></h2>
+            <p>We have a public page dedicated to our mission of enhancing the Facebook user experience using AI. Follow us for updates on our latest projects and technologies, and join the conversation with other like-minded individuals who share our passion for innovation.</p>
+			<a href="https://www.facebook.com/profile.php?id=100091588770008"><img src="{% static 'pic/p41.webp' %}" alt="Community Image"> </a>
+			<p>Let's work together to make Facebook a better place for everyone!</p> 
+            
+			
         </div>
         <div id="footer" align="center">
             © 2023 Raven AI. All Rights Reserved.
@@ -42,5 +172,18 @@ Weaviate is a knowledge graph engine that helps developers understand and interp
             <i class="el-icon-message"></i>info@ravenapp.link
         </div>
     </div>
+	<script>
+        const slides = document.querySelectorAll(".slide");
+        let currentIndex = 0;
+        slides[currentIndex].classList.add("active");
+
+        function changeSlide() {
+            slides[currentIndex].classList.remove("active");
+            currentIndex = (currentIndex + 1) % slides.length;
+            slides[currentIndex].classList.add("active");
+        }
+
+        setInterval(changeSlide, 5000); 
+    </script>
 </body>
 </html>
